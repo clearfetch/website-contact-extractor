@@ -1,0 +1,1 @@
+{ "urls": ["apify.com", "stripe.com", "https://www.zalando.de", "basecamp.com", "this-domain-does-not-exist-12345.com"], "maxPagesPerSite": 4 }

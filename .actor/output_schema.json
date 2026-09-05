@@ -1,0 +1,13 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Website Contact Extractor output",
+    "description": "One dataset item per website, holding every contact detail found across the pages that were read.",
+    "properties": {
+        "results": {
+            "type": "string",
+            "title": "Websites with contacts",
+            "description": "One row per website: company name, emails, phone numbers in E.164 with country and line type, social profiles by platform, postal addresses, and which pages each detail was found on. Websites that cannot be reached appear with ok=false and are not charged.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        }
+    }
+}

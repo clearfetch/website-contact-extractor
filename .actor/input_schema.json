@@ -1,0 +1,74 @@
+{
+    "title": "Website Contact Extractor input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "urls": {
+            "title": "Websites",
+            "type": "array",
+            "description": "Domains or URLs to extract contacts from, one per line. Bare domains are fine. Also accepts \"url\" or \"startUrls\" for compatibility with other Actors.",
+            "editor": "stringList",
+            "prefill": [
+                "apify.com",
+                "stripe.com"
+            ]
+        },
+        "maxPagesPerSite": {
+            "title": "Pages per website",
+            "type": "integer",
+            "description": "How many pages to read per website. The first is the URL you gave; the rest are the site's own contact, imprint, about and team pages, chosen by how likely they are to hold contact details. 1 reads only the page you gave.",
+            "default": 5,
+            "minimum": 1,
+            "maximum": 20
+        },
+        "includeEmails": {
+            "title": "Emails",
+            "type": "boolean",
+            "description": "Extract email addresses, including ones written as \"name [at] example [dot] com\".",
+            "default": true
+        },
+        "includePhones": {
+            "title": "Phone numbers",
+            "type": "boolean",
+            "description": "Extract phone numbers and normalise them to E.164, using the site's country as a hint for local formats.",
+            "default": true
+        },
+        "includeSocials": {
+            "title": "Social profiles",
+            "type": "boolean",
+            "description": "Extract profile links for Facebook, Instagram, LinkedIn, X, YouTube, TikTok, GitHub, Pinterest, Threads, Telegram, WhatsApp and more. Share and intent links are ignored.",
+            "default": true
+        },
+        "includeAddresses": {
+            "title": "Postal addresses",
+            "type": "boolean",
+            "description": "Extract postal addresses from schema.org data and address tags.",
+            "default": true
+        },
+        "maxConcurrency": {
+            "title": "Concurrency",
+            "type": "integer",
+            "description": "Websites processed in parallel.",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 50
+        },
+        "timeoutSecs": {
+            "title": "Request timeout (seconds)",
+            "type": "integer",
+            "description": "Give up on a single page after this many seconds.",
+            "default": 20,
+            "minimum": 5,
+            "maximum": 60
+        },
+        "proxyConfiguration": {
+            "title": "Proxy",
+            "type": "object",
+            "description": "Optional. Most sites answer plain datacenter requests, so no proxy is needed in normal use.",
+            "editor": "proxy",
+            "default": {
+                "useApifyProxy": false
+            }
+        }
+    }
+}

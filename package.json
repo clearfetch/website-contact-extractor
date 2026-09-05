@@ -1,0 +1,19 @@
+{
+    "name": "website-contact-extractor",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Extract emails, phone numbers, social profiles and postal addresses from any website.",
+    "engines": { "node": ">=20.0.0" },
+    "dependencies": {
+        "apify": "^3.7.0",
+        "cheerio": "^1.0.0",
+        "got-scraping": "^4.0.0",
+        "libphonenumber-js": "^1.11.0",
+        "tldts": "^6.1.0"
+    },
+    "scripts": {
+        "start": "node ./src/main.js",
+        "test": "node ./test/extract.test.mjs"
+    },
+    "license": "MIT"
+}

@@ -1,0 +1,1 @@
+{ "urls": ["not a url", "http://", "mailto:hi@example.com", "ftp://files.example.com", "localhost", "apify.com", "apify.com"], "maxPagesPerSite": 1 }

@@ -1,0 +1,169 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "url": {
+                "type": "string",
+                "title": "Website",
+                "description": "The URL as supplied in the input."
+            },
+            "finalUrl": {
+                "type": "string",
+                "title": "Final URL",
+                "description": "URL after redirects."
+            },
+            "ok": {
+                "type": "boolean",
+                "description": "False rows are failures and are not charged."
+            },
+            "statusCode": {
+                "type": [
+                    "integer",
+                    "null"
+                ],
+                "title": "HTTP status"
+            },
+            "company": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Company",
+                "description": "Company name from schema.org Organization data, the og:site_name tag, the page title or the domain, in that order of preference."
+            },
+            "companySource": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "Which of those the company name came from."
+            },
+            "primaryEmail": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Primary email",
+                "description": "The best email found, preferring ones on a contact or imprint page. Convenient for spreadsheets and CRM imports."
+            },
+            "primaryPhone": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "title": "Primary phone",
+                "description": "The best phone number found, in E.164."
+            },
+            "emails": {
+                "type": "array",
+                "title": "Emails",
+                "description": "Every address found, best first. Each carries how it was found (mailto link, page text, data attribute) and which pages it appeared on.",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "phones": {
+                "type": "array",
+                "title": "Phones",
+                "description": "Every number found, best first, normalised to E.164 with its country and line type (mobile, fixed line) where the format allows.",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "socials": {
+                "type": "array",
+                "title": "Social profiles",
+                "description": "Profile links with the platform and the handle. Share and intent URLs are excluded.",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "addresses": {
+                "type": "array",
+                "title": "Postal addresses",
+                "description": "Structured addresses from schema.org data, and raw text from address tags.",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "counts": {
+                "type": "object",
+                "title": "Counts",
+                "description": "How many emails, phones, socials and addresses were found."
+            },
+            "pagesCrawled": {
+                "type": "array",
+                "title": "Pages read",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "pageErrors": {
+                "type": "array",
+                "description": "Sub-pages that could not be read. The website is still charged if its first page worked.",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "elapsedMs": {
+                "type": "integer"
+            },
+            "scrapedAt": {
+                "type": "string",
+                "description": "ISO timestamp."
+            },
+            "error": {
+                "type": "string",
+                "description": "Present only on failed rows."
+            }
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Contacts",
+            "transformation": {
+                "fields": [
+                    "company",
+                    "primaryEmail",
+                    "primaryPhone",
+                    "counts.emails",
+                    "counts.phones",
+                    "counts.socials",
+                    "url",
+                    "finalUrl"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "company": {
+                        "label": "Company"
+                    },
+                    "primaryEmail": {
+                        "label": "Email"
+                    },
+                    "primaryPhone": {
+                        "label": "Phone"
+                    },
+                    "counts.emails": {
+                        "label": "# emails"
+                    },
+                    "counts.phones": {
+                        "label": "# phones"
+                    },
+                    "counts.socials": {
+                        "label": "# socials"
+                    },
+                    "url": {
+                        "label": "Input URL"
+                    },
+                    "finalUrl": {
+                        "label": "Website",
+                        "format": "link"
+                    }
+                }
+            }
+        }
+    }
+}

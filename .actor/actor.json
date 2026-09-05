@@ -1,0 +1,17 @@
+{
+    "actorSpecification": 1,
+    "name": "website-contact-extractor",
+    "title": "Website Contact Extractor - Emails, Phones & Social Profiles",
+    "description": "Extract business contact details from any website: email addresses, phone numbers in E.164 format, social profiles, postal addresses and the company name. Follows the site's own contact, about and imprint pages. No proxy, no login.",
+    "version": "1.0",
+    "buildTag": "latest",
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 2048,
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "dockerfile": "../Dockerfile",
+    "readme": "../README.md",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    }
+}
