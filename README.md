@@ -1,7 +1,5 @@
 # Website Contact Extractor - Emails, Phones & Social Profiles
 
-**Run it on Apify: [apify.com/clearfetch/website-contact-extractor](https://apify.com/clearfetch/website-contact-extractor)**
-
 Give this Actor a list of websites and it returns the business contact details behind each one: email addresses,
 phone numbers normalised to E.164, social profiles, postal addresses and the company name. It does not just read
 the page you give it. It finds the site's own contact, imprint, about and team pages and reads those too, which
@@ -184,6 +182,10 @@ A website that cannot be reached is reported and costs nothing:
 **$0.004 per website**, whatever number of pages it takes to read. 1,000 websites is $4. Websites that fail are
 free. No subscription and no API key; it runs on the Apify free plan.
 
+Paid Apify plans pay less: 10% off on Bronze, 20% on Silver and 30% on Gold and higher tiers.
+
+Apify also charges a run-start fee of $0.00005 per started GB of allocated memory (minimum one event), including runs that produce no chargeable results.
+
 ## What it filters out, and why that matters
 
 Contact scrapers are judged on their junk rate, so this one is deliberately strict:
@@ -245,9 +247,16 @@ on a company's own website are public. How you use them is your responsibility: 
 marketing email to those addresses is governed by GDPR and the ePrivacy rules, and this Actor is not a
 substitute for a lawful basis or for honouring opt-outs.
 
+## More tools from clearfetch
+
+- [Tech Stack Detector](https://apify.com/clearfetch/tech-stack-detector): the CMS, frameworks, analytics and hosting behind any website
+- [Document Text Extractor](https://apify.com/clearfetch/document-text-extractor): PDF, DOCX and HTML to clean text and markdown
+- [Website Sitemap Extractor](https://apify.com/clearfetch/website-sitemap-extractor): every URL of a website from its sitemaps, from just the domain
+- [Broken Link Checker](https://apify.com/clearfetch/broken-link-checker): 404s, redirect chains and soft 404s in bulk
+- [ATS Jobs Scraper](https://apify.com/clearfetch/ats-jobs-scraper): every open job from company careers pages on Greenhouse, Lever, Ashby, Workday and more
+
 ## Changelog
 
 - **1.0.0** (2026-09) — first release: emails with de-obfuscation, phones in E.164 with line type, social
   profiles with handles, schema.org and text addresses, company name, and automatic discovery of a site's
   contact and imprint pages.
-
